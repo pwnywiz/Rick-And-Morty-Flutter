@@ -20,20 +20,10 @@ class MyApp extends StatelessWidget {
 }
 
 class RootApp extends StatelessWidget {
-  final ScrollController _scrollController = ScrollController();
-
+  
   @override
   Widget build(BuildContext context) {
     final CharacterBloc characterBloc = Provider.of<CharacterBloc>(context);
-
-    _scrollController.addListener(() {
-      ScrollPosition scrollPosition = _scrollController.position;
-      if (scrollPosition.pixels == scrollPosition.maxScrollExtent) {
-        print(_scrollController.position.pixels);
-        characterBloc.pageUrl
-            .add('https://rickandmortyapi.com/api/character/2');
-      }
-    });
 
     return MaterialApp(
       title: 'Rick And Morty DB',
@@ -47,8 +37,7 @@ class RootApp extends StatelessWidget {
                     style: TextStyle(color: Colors.white))),
           ),
           body: ListPage(
-            bloc: characterBloc,
-            scrollController: _scrollController,
+            bloc: characterBloc
           )),
     );
   }

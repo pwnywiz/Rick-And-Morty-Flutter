@@ -9,9 +9,8 @@ import 'package:my_app/models/character_page.dart';
 
 class ListPage extends StatelessWidget {
   final CharacterBloc bloc;
-  final ScrollController scrollController;
 
-  ListPage({Key key, @required this.bloc, @required this.scrollController})
+  ListPage({Key key, @required this.bloc})
       : super(key: key);
 
   @override
